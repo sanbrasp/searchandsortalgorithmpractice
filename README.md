@@ -1,11 +1,35 @@
 ﻿# Sorting Algorithms Practice
 
-Just a small practice project.
+A small practice project.
 
 Contains classes with code for various sorting algorithms and test runs in `Program.cs`.
 
 ---
 
-Educational purposes.
+Educational purposes only.
+
+---
+
+This project briefly touches the following:
+
+- [Bubble Sort](Bubblesort.cs)
+- [Heap Sort](HeapSort.cs)
+- [Insertion Sort](InsertionSort.cs)
+- [Merge Sort](MergeSort.cs)
+- [Quick Sort](QuickSort.cs)
+- [Radix Sort](RadixSort.cs)
+- [Selection Sort](SelectionSort.cs)
+
+---
+
+## Acknowledgements and Sources:
+
+Algorithm information and visuals:  
+https://see-algorithms.com/
+
+Claude.ai has been used for creation of example code and explanations.  
+
+Google Notebook has been used for creation of the Cheat Sheet found in [SortingNotes.pdf](SortingNotes.pdf)  
+(raw .md file: [notes.md](notes.md))
 
 ---
