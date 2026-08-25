@@ -25,47 +25,72 @@ int[] radixSortData = (int[])original.Clone();
 stopWatch.Restart();
 Bubblesort.Sort(bubbleData);
 stopWatch.Stop();
-Console.WriteLine($"BubbleSorted array: {string.Join(", ", bubbleData)}");
-Console.WriteLine($"Time BubbleSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
+PrintResult("BubbleSort", bubbleData, stopWatch.ElapsedMilliseconds);
+// Console.WriteLine($"BubbleSorted array: {string.Join(", ", bubbleData)}");
+// Console.WriteLine($"Time BubbleSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
 
 // QuickSort:
 stopWatch.Restart();
 QuickSort.Sort(quickSortData);
 stopWatch.Stop();
-Console.WriteLine($"QuickSorted array: {string.Join(", ", quickSortData)}");
-Console.WriteLine($"Time QuickSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
+PrintResult("QuickSort", quickSortData, stopWatch.ElapsedMilliseconds);
+// Console.WriteLine($"QuickSorted array: {string.Join(", ", quickSortData)}");
+// Console.WriteLine($"Time QuickSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
 
 // MergeSort:
 stopWatch.Restart();
 MergeSort.Sort(mergeSortData, 0, mergeSortData.Length -1);
 stopWatch.Stop();
-Console.WriteLine($"MergeSorted array: {string.Join(", ", mergeSortData)}");
-Console.WriteLine($"Time MergeSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
+PrintResult("MergeSort", mergeSortData, stopWatch.ElapsedMilliseconds);
+// Console.WriteLine($"MergeSorted array: {string.Join(", ", mergeSortData)}");
+// Console.WriteLine($"Time MergeSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
 
 // InsertionSort:
 stopWatch.Restart();
 InsertionSort.Sort(insertionSortData);
 stopWatch.Stop();
-Console.WriteLine($"InsertionSorted array: {string.Join(", ", insertionSortData)}");
-Console.WriteLine($"Time InsertionSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
+PrintResult("InsertionSort", insertionSortData, stopWatch.ElapsedMilliseconds);
+// Console.WriteLine($"InsertionSorted array: {string.Join(", ", insertionSortData)}");
+// Console.WriteLine($"Time InsertionSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
 
 // SelectionSort
 stopWatch.Restart();
 SelectionSort.Sort(selectionSortData);
 stopWatch.Stop();
-Console.WriteLine($"SelectionSorted array: {string.Join(", ", selectionSortData)}");
-Console.WriteLine($"Time SelectionSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
+PrintResult("SelectionSort", selectionSortData, stopWatch.ElapsedMilliseconds);
+// Console.WriteLine($"SelectionSorted array: {string.Join(", ", selectionSortData)}");
+// Console.WriteLine($"Time SelectionSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
 
 // HeapSort:
 stopWatch.Restart();
 HeapSort.Sort(heapSortData);
 stopWatch.Stop();
-Console.WriteLine($"HeapSorted array: {string.Join(", ", heapSortData)}");
-Console.WriteLine($"Time HeapSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
+PrintResult("HeapSort", heapSortData, stopWatch.ElapsedMilliseconds);
+// Console.WriteLine($"HeapSorted array: {string.Join(", ", heapSortData)}");
+// Console.WriteLine($"Time HeapSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
 
 // RadixSort:
 stopWatch.Restart();
 RadixSort.Sort(radixSortData);
 stopWatch.Stop();
-Console.WriteLine($"RadixSorted array: {string.Join(", ", radixSortData)}");
-Console.WriteLine($"Time RadixSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
+PrintResult("RadixSort", radixSortData, stopWatch.ElapsedMilliseconds);
+// Console.WriteLine($"RadixSorted array: {string.Join(", ", radixSortData)}");
+// Console.WriteLine($"Time RadixSort: {stopWatch.ElapsedMilliseconds} milliseconds\n");
+
+
+
+// Local helpers
+void PrintResult(string name, int[] sortedArray, long ms)
+{
+    bool isSorted = IsSorted(sortedArray);
+    Console.WriteLine($"{name,-15} {ms,5} ms    sorted: {isSorted}    first: {sortedArray[0]}    last: {sortedArray[^1]}");
+}
+
+bool IsSorted(int[] arr)
+{
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (arr[i] < arr[i - 1]) return false;
+    }
+    return true;
+}
