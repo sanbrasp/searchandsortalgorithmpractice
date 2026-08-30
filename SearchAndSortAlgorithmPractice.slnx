@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="SearchAlgorithmPractice.Tests/SearchAlgorithmPractice.Tests.csproj" />
+  <Project Path="SearchAlgorithmPractice/SearchAlgorithmPractice.csproj" />
+  <Project Path="SortingAlgorithmPractice/SortingAlgorithmPractice.csproj" />
+</Solution>
