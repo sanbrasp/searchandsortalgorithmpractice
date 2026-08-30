@@ -60,4 +60,16 @@ public class LinearSearchTests
         Assert.True(result.Found);
         Assert.Equal(4, result.Index);
     }
+
+    [Fact]
+    public void LinearSearchTest_FindsExistingElement_WhenArrayIsUnsorted()
+    {
+        int[] numbers = { 25, 3, 19, 7, 12 }; // deliberately unsorted for the test
+        
+        var result = SearchHelpers.LinearSearch(7, numbers);
+        
+        Assert.True(result.Found);
+        Assert.Equal(3, result.Index); // sits at index 3
+        Assert.Equal(7, result.Value);
+    }
 }
