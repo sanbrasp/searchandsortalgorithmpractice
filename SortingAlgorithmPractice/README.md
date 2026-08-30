@@ -4,6 +4,8 @@ A small practice project.
 
 Contains classes with code for various sorting algorithms and test runs in `Program.cs`.
 
+Part of the [SearchAndSortAlgorithmPractice](../README.md) solution.
+
 ---
 
 Educational purposes only.
@@ -33,3 +35,13 @@ Google Notebook has been used for creation of the Cheat Sheet found in [SortingN
 (raw .md file: [notes.md](notes.md))
 
 ---
+
+## Build
+
+From the solution root:
+```powershell
+dotnet build
+```
+
+---
+
