@@ -10,7 +10,7 @@ public class BinarySearchTests
     {
         int[] numbers = { 3, 7, 12, 19, 25 };
 
-        var result = SearchHelpers.BinarySearch(12, numbers);
+        var result = SearchAlgorithms.BinarySearch(12, numbers);
 
         Assert.True(result.Found);
         Assert.Equal(2, result.Index);
@@ -22,7 +22,7 @@ public class BinarySearchTests
     {
         int[] numbers = { 3, 7, 12, 19, 25 };
         
-        var result = SearchHelpers.BinarySearch(99, numbers);
+        var result = SearchAlgorithms.BinarySearch(99, numbers);
         
         Assert.False(result.Found);
         Assert.Equal(-1, result.Index);
@@ -33,7 +33,7 @@ public class BinarySearchTests
     {
         int[] numbers = { };
         
-        var result = SearchHelpers.BinarySearch(5, numbers);
+        var result = SearchAlgorithms.BinarySearch(5, numbers);
         
         Assert.False(result.Found);
         Assert.Equal(-1, result.Index);
@@ -44,7 +44,7 @@ public class BinarySearchTests
     {
         int[] numbers = { 3, 7, 12, 19, 25 };
         
-        var result = SearchHelpers.BinarySearch(3, numbers);
+        var result = SearchAlgorithms.BinarySearch(3, numbers);
         
         Assert.True(result.Found);
         Assert.Equal(0, result.Index);
@@ -55,7 +55,7 @@ public class BinarySearchTests
     {
         int[] numbers = { 3, 7, 12, 19, 25 };
         
-        var result = SearchHelpers.BinarySearch(25, numbers);
+        var result = SearchAlgorithms.BinarySearch(25, numbers);
         
         Assert.True(result.Found);
         Assert.Equal(4, result.Index);
@@ -66,7 +66,7 @@ public class BinarySearchTests
     {
         int[] luckyArray = { 3, 25, 7, 19, 12 };
         
-        var result = SearchHelpers.BinarySearch(7, luckyArray);
+        var result = SearchAlgorithms.BinarySearch(7, luckyArray);
         
         Assert.True(result.Found); // works here, but only by coincidence
     }
@@ -76,7 +76,7 @@ public class BinarySearchTests
     {
         int[] unLuckyArray = { 25, 3, 19, 7, 12 };
         
-        var result = SearchHelpers.BinarySearch(7, unLuckyArray);
+        var result = SearchAlgorithms.BinarySearch(7, unLuckyArray);
         
         Assert.False(result.Found); // fails here, due to violated precondition of sorted array
     }

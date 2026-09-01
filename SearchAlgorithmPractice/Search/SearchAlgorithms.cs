@@ -2,7 +2,7 @@
 
 namespace SearchAlgorithmPractice.Helpers;
 
-internal static class SearchHelpers
+internal static class SearchAlgorithms
 {
     internal static SearchResult<T> LinearSearch<T>(T target, IEnumerable<T> array)
     {
