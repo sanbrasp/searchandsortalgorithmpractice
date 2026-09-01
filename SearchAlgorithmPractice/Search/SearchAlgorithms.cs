@@ -1,6 +1,4 @@
-﻿using SearchAlgorithmPractice.Models;
-
-namespace SearchAlgorithmPractice.Helpers;
+﻿namespace SearchAlgorithmPractice.Search;
 
 internal static class SearchAlgorithms
 {

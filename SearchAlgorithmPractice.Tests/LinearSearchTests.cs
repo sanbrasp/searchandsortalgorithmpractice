@@ -1,4 +1,4 @@
-﻿using SearchAlgorithmPractice.Helpers;
+﻿using SearchAlgorithmPractice.Search;
 using Xunit;
 
 namespace SearchAlgorithmPractice.Tests;
