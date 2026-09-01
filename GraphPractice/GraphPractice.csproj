@@ -7,4 +7,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\SearchAlgorithmPractice\SearchAlgorithmPractice.csproj" />
+      <ProjectReference Include="..\SortingAlgorithmPractice\SortingAlgorithmPractice.csproj" />
+    </ItemGroup>
+
 </Project>
