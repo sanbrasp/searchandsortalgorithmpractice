@@ -22,6 +22,34 @@ Its purpose is practicing search algorithms.
 This was chosen to better signal the differences between Linear and Binary Search, even though it could also have taken 
 `IReadOnlyList<T>` like `BinarySearch()`.
 
+
+**`Dfs()`**  
+The example from the lecture used an elegant and short version:  
+```csharp
+void DFS(Graf graf, string node, HashSet<string> besøkt)
+{
+    besøkt.Add(node);
+    Console.WriteLine(node);
+    
+    foreach(var nabo in graf[node])
+        if (!besøkt.Contains(nabo))
+            DFS(graf, nabo, besøkt);
+}
+
+// Call
+DFS(graf, "A", new HashSet<string>());
+```
+
+The version in this project uses a private recursive helper method for the traversal, and a public
+entry point (Dfs) that handles setup.  
+The reasoning for this is that the example from the lecture requires every caller to remember to 
+pass in a fresh `HashSet` at the call site.  
+Writing and using the helper method removes that requirement, making it easier to call, and it also 
+removes the risk of reusing an old `HashSet` if the caller forgets to pass in a new one.
+
+The end result is the same, it's just a choice between remembering the new `HashSet`, or writing a helper 
+method that allows you to omit that part of the call.
+
 ---
 
 ## About search results
