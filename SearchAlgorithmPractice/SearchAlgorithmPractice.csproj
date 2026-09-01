@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="SearchAlgorithmPractice.Tests"/>
+    <InternalsVisibleTo Include="GraphPractice"/>
   </ItemGroup>
 
 </Project>
