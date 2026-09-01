@@ -10,19 +10,30 @@ algorithms in C#, built during Advanced Backend Programming (`Gokstad Akademiet`
 - **SearchAlgorithmPractice**  
   `Linear Search` and `Binary Search` implementations.  
   See its own [README](SearchAlgorithmPractice/README.md) for details.  
-  Code found [here](SearchAlgorithmPractice/Search/SearchAlgorithms.cs)
+  Algorithms found [here](SearchAlgorithmPractice/Search/SearchAlgorithms.cs)  
+  Record for search results found [here](SearchAlgorithmPractice/Search/SearchResult.cs)
 
 
 - **SearchAlgorithmPractice.Tests**  
-  `xUnit` tests covering both search algorithms,
+  `xUnit` tests covering both linear search and binary search (more to come), 
   including edge cases (empty collection, boundary indices, unsorted-array behavior).  
-  Will have its own README soon.
+  Will have its own README soon.  
+  [BinarySearchTests](SearchAlgorithmPractice.Tests/BinarySearchTests.cs)  
+  [LinearSearchTests](SearchAlgorithmPractice.Tests/LinearSearchTests.cs)
 
 
 - **SortingAlgorithmPractice**  
   Bubble, Selection, Insertion, Merge, Quick, Heap, and
   Radix Sort implementations.  
-  See its own [README](SortingAlgorithmPractice/README.md) for details.
+  See its own [README](SortingAlgorithmPractice/README.md) for details.  
+  The project also contains a [notes](SortingAlgorithmPractice/notes.md) file.  
+  [BubbleSort](SortingAlgorithmPractice/Bubblesort.cs)  
+  [HeapSort](SortingAlgorithmPractice/HeapSort.cs)  
+  [InsertionSort](SortingAlgorithmPractice/InsertionSort.cs)  
+  [MergeSort](SortingAlgorithmPractice/MergeSort.cs)  
+  [QuickSort](SortingAlgorithmPractice/QuickSort.cs)  
+  [RadixSort](SortingAlgorithmPractice/RadixSort.cs)  
+  [SelectionSort](SortingAlgorithmPractice/SelectionSort.cs)
 
 
 - **GraphPractice**  
