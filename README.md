@@ -9,6 +9,7 @@ algorithms in C#, built during Advanced Backend Programming (`Gokstad Akademiet`
 
 - **SearchAlgorithmPractice**  
   `Linear Search` and `Binary Search` implementations.  
+  Graph travevrsals `BFS` and `DFS`.  
   See its own [README](SearchAlgorithmPractice/README.md) for details.  
   Algorithms found [here](SearchAlgorithmPractice/Search/SearchAlgorithms.cs)  
   Record for search results found [here](SearchAlgorithmPractice/Search/SearchResult.cs)
@@ -17,6 +18,7 @@ algorithms in C#, built during Advanced Backend Programming (`Gokstad Akademiet`
 - **SearchAlgorithmPractice.Tests**  
   `xUnit` tests covering both linear search and binary search (more to come), 
   including edge cases (empty collection, boundary indices, unsorted-array behavior).  
+  _More tests to come for the remaining projects._  
   Will have its own README soon.  
   [BinarySearchTests](SearchAlgorithmPractice.Tests/BinarySearchTests.cs)  
   [LinearSearchTests](SearchAlgorithmPractice.Tests/LinearSearchTests.cs)
@@ -37,8 +39,9 @@ algorithms in C#, built during Advanced Backend Programming (`Gokstad Akademiet`
 
 
 - **GraphPractice**  
-  Presentation of graphs. Merges the knowledge from the other projects into one in order to 
-  work with sorted and searched data.  
+  Presentation and modeling of graphs.  
+  Builds `Graph<T>` and related structures.  
+  Consumes `SearchAlgorithmPractice`'s traversal algorithms `BFS` and `DFS`.  
   See its own [README](GraphPractice/README.md) for details.
 
 ---
