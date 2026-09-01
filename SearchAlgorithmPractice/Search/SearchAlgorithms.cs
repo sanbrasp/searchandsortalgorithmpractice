@@ -2,6 +2,14 @@
 
 internal static class SearchAlgorithms
 {
+    /// <summary>
+    /// Runs a linear search on any array (sorted or unsorted). Searches for a specific target, and is
+    /// written to also return the index of that target since that does not come built-in.
+    /// </summary>
+    /// <param name="target">The element to search for.</param>
+    /// <param name="array">The array to search for the element in.</param>
+    /// <typeparam name="T">Generic type.</typeparam>
+    /// <returns>Search result if found, -1 if not found.</returns>
     internal static SearchResult<T> LinearSearch<T>(T target, IEnumerable<T> array)
     {
         var comparer = EqualityComparer<T>.Default;
@@ -19,6 +27,13 @@ internal static class SearchAlgorithms
         return new SearchResult<T>(false, -1, default);
     }
 
+    /// <summary>
+    /// Runs a binary search on a sorted array. Searches for specific target and gives the index if found.
+    /// </summary>
+    /// <param name="target">The element to search for.</param>
+    /// <param name="array">The array to search for the target in.</param>
+    /// <typeparam name="T">Generic type.</typeparam>
+    /// <returns>Target and index if found, -1 if not found.</returns>
     internal static SearchResult<T> BinarySearch<T>(T target, IReadOnlyList<T> array)
     {
         var comparer = Comparer<T>.Default;
@@ -47,5 +62,47 @@ internal static class SearchAlgorithms
             }
         }
         return new SearchResult<T>(false, -1, default);
+    }
+
+    /// <summary>
+    /// Runs a breadth-first search traversal starting from a given node, exploring the graph
+    /// layer by layer using a FIFO queue. Returns nodes in the order they were visited.
+    /// </summary>
+    /// <param name="adjacencyList">The graph, represented as a dictionary mapping each node to its neighbors.</param>
+    /// <param name="startNode">The node to begin traversal from.</param>
+    /// <typeparam name="T">Generic type.</typeparam>
+    /// <returns>A list of nodes in the order they were visited. Empty if startNode isn't in the graph.</returns>
+    internal static List<T> Bfs<T>(Dictionary<T, List<T>> adjacencyList, T startNode) where T : notnull
+    {
+        if (!adjacencyList.ContainsKey(startNode))
+        {
+            return new List<T>();
+        }
+
+        var visited = new HashSet<T>(); // for storing visted nodes
+        var queue = new Queue<T>(); // for queueing nodes
+        var result = new List<T>(); // for storing the result
+
+        visited.Add(startNode);
+        queue.Enqueue(startNode);
+
+        while (queue.Count > 0) // keep going as long as someone is waiting in the queue
+        {
+            var current = queue.Dequeue(); // gives you the first node, removes it from the queue
+            result.Add(current); // "current" has been processed, and is added to result list which stores visit order
+            
+            if (adjacencyList.TryGetValue(current, out var neighbors))
+            {
+                foreach (var neighbor in neighbors) // look up "current"s neighbors. 
+                {
+                    if (!visited.Contains(neighbor)) // if it hasn't been visited, it's added. if it has, it's skipped.
+                    {
+                        visited.Add(neighbor); // new neighbors are marked as visited immediately
+                        queue.Enqueue(neighbor); // new neighbors are added to the back of the queue
+                    }
+                }
+            }
+        }
+        return result;
     }
 }
