@@ -36,4 +36,11 @@ internal class Graph<T> where T : notnull // dictionary key can never be null
     {
         return _adjacencyList.ContainsKey(node);
     }
+
+    internal Dictionary<T, List<T>> GetAdjacencyList()
+    {
+        return _adjacencyList.ToDictionary(
+            pair => pair.Key,
+            pair => new List<T>(pair.Value));
+    }
 }
