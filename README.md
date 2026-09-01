@@ -21,6 +21,11 @@ algorithms in C#, built during Advanced Backend Programming (`Gokstad Akademiet`
   Bubble, Selection, Insertion, Merge, Quick, Heap, and
   Radix Sort implementations. See its own README for details.
 
+
+- **GraphPractice**  
+  Presentation of graphs. Merges the knowledge from the other projects into one in order to 
+  work with sorted and searched data. See its own README for details.
+
 ---
 
 ## Building and testing
