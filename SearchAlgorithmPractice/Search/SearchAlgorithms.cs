@@ -65,7 +65,7 @@ internal static class SearchAlgorithms
     }
 
     /// <summary>
-    /// Runs a breadth-first search traversal starting from a given node, exploring the graph
+    /// Runs a breadth-first search starting from a given node, exploring the graph
     /// layer by layer using a FIFO queue. Returns nodes in the order they were visited.
     /// </summary>
     /// <param name="adjacencyList">The graph, represented as a dictionary mapping each node to its neighbors.</param>
@@ -104,5 +104,50 @@ internal static class SearchAlgorithms
             }
         }
         return result;
+    }
+
+    /// <summary>
+    /// Runs a depth-first search starting from a given node, exploring as far down as possible on each branch
+    /// before backtracking. Returns nodes in the order they were visited.
+    /// </summary>
+    /// <param name="adjacencyList">The graph, represented as a dictionary mapping each node to its neighbors.</param>
+    /// <param name="startNode">The node to begin traversal from.</param>
+    /// <typeparam name="T">Generic type.</typeparam>
+    /// <returns>A list of nodes in the order they were visited. Empty if startNode isn't in the graph.</returns>
+    internal static List<T> Dfs<T>(Dictionary<T, List<T>> adjacencyList, T startNode) where T : notnull
+    {
+        if (!adjacencyList.ContainsKey(startNode))
+        {
+            return new List<T>();
+        }
+
+        var visited = new HashSet<T>();
+        var result = new List<T>();
+        
+        DfsVisit(adjacencyList, startNode, visited, result);
+        
+        return result;
+    }
+
+    /// <summary>
+    /// Recursive helper for Dfs. Visits a single node, records it, then recurses into each
+    /// unvisited neighbor.
+    /// </summary>
+    private static void DfsVisit<T>(Dictionary<T, List<T>> adjacencyList, T node, HashSet<T> visited,
+        List<T> result) where T : notnull
+    {
+        visited.Add(node);
+        result.Add(node);
+
+        if (adjacencyList.TryGetValue(node, out var neighbors))
+        {
+            foreach (var neighbor in neighbors)
+            {
+                if (!visited.Contains(neighbor))
+                {
+                    DfsVisit(adjacencyList, neighbor, visited, result);
+                }
+            }
+        }
     }
 }
