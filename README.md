@@ -41,7 +41,7 @@ This builds all three projects and runs the full test suite for the search algor
 
 ---
 
-## Repo history note
+### Repo history note
 
 This repo was assembled from three originally separate projects using `git subtree`,
 preserving commit history where it existed. `SearchAlgorithmPractice.Tests` did not have
