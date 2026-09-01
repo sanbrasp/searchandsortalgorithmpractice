@@ -1,6 +1,6 @@
 # SearchAndSortAlgorithmPractice
 
-A personal reference solution for practicing and documenting classic search and sorting
+A personal reference solution for practicing and documenting search and sorting
 algorithms in C#, built during Advanced Backend Programming (`Gokstad Akademiet`).
 
 ---
@@ -8,27 +8,31 @@ algorithms in C#, built during Advanced Backend Programming (`Gokstad Akademiet`
 ## Projects
 
 - **SearchAlgorithmPractice**  
-  `Linear Search` and `Binary Search` implementations.
-  See its own README for details.
+  `Linear Search` and `Binary Search` implementations.  
+  See its own [README](SearchAlgorithmPractice/README.md) for details.  
+  Code found [here](SearchAlgorithmPractice/Search/SearchAlgorithms.cs)
 
 
 - **SearchAlgorithmPractice.Tests**  
   `xUnit` tests covering both search algorithms,
-  including edge cases (empty collection, boundary indices, unsorted-array behavior).
+  including edge cases (empty collection, boundary indices, unsorted-array behavior).  
+  Will have its own README soon.
 
 
 - **SortingAlgorithmPractice**  
   Bubble, Selection, Insertion, Merge, Quick, Heap, and
-  Radix Sort implementations. See its own README for details.
+  Radix Sort implementations.  
+  See its own [README](SortingAlgorithmPractice/README.md) for details.
 
 
 - **GraphPractice**  
   Presentation of graphs. Merges the knowledge from the other projects into one in order to 
-  work with sorted and searched data. See its own README for details.
+  work with sorted and searched data.  
+  See its own [README](GraphPractice/README.md) for details.
 
 ---
 
-## Building and testing
+## Build and test
 
 From the solution root:
 
@@ -37,7 +41,7 @@ dotnet build
 dotnet test
 ```
 
-This builds all three projects and runs the full test suite for the search algorithms.
+This builds all four projects and runs the full test suite for the search algorithms.
 
 ---
 
