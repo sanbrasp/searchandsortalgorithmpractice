@@ -164,7 +164,10 @@ unsorted input (see above).
 - Multiple neighbors (confirms visit order)
 - Disconnected components (confirms isolation from unrelated components)
 
-`Dfs` doesn't have test coverage yet.
+`Dfs` is tested against the same six scenarios as `Bfs`. Note the multiple-neighbors
+test asserts a different expected order than `Bfs`'s equivalent test, since DFS and
+BFS traverse the same graph differently — see the design note above for how this
+project's `Dfs` behaves.
 
 ---
 

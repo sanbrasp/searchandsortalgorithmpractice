@@ -1,7 +1,7 @@
 ﻿# SearchAlgorithmPractice.Tests
 
-xUnit tests for the `SearchAlgorithmPractice` project's `LinearSearch` and `BinarySearch`
-projects.
+xUnit tests for the `SearchAlgorithmPractice` project's `LinearSearch`, `BinarySearch`,
+`Bfs`, and `Dfs` implementations.
 
 ---
 
@@ -36,9 +36,10 @@ unsorted input (see above).
 - **Multiple neighbors** — confirms visit order matches expected FIFO/queue behavior
 - **Disconnected components** — confirms BFS from one component doesn't reach an unrelated component
 
-`Dfs` doesn't have test coverage yet.
-
----
+`Dfs` is tested against the same six scenarios as `Bfs`. Note the multiple-neighbors
+test asserts a different expected order than `Bfs`'s equivalent test, since DFS and
+BFS traverse the same graph differently — see the design note above for how this
+project's `Dfs` behaves.
 
 ---
 
@@ -61,7 +62,7 @@ what happens when that precondition is violated:
 ## Project setup notes
 
 - Uses `InternalsVisibleTo` (declared in `SearchAlgorithmPractice.csproj`) to access the
-  `internal` `SearchHelpers` class without making it `public`.
+  `internal` `SearchAlgorithms` class without making it `public`.
 - References `SearchAlgorithmPractice` via a relative `ProjectReference`
   (`..\SearchAlgorithmPractice\SearchAlgorithmPractice.csproj`), since both projects live
   as siblings under the solution root.
