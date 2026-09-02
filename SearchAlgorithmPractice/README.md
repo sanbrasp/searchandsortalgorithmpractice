@@ -69,6 +69,17 @@ internal static SearchResult<T> BinarySearch<T>(T target, IReadOnlyList<T> array
   range each step by trusting that "smaller than mid" means "must be to the left" — this
   assumption only holds if the data is actually sorted that way.
 
+**What happens on unsorted input:**  
+Binary Search does **not** fail loudly or predictably on unsorted data — it fails
+*silently and inconsistently*. Whether it happens to find the target or not depends
+entirely on where the target happens to land relative to the pivot points the algorithm
+chooses — pure coincidence of array arrangement, not a property you can rely on.
+
+Two tests in `BinarySearchTests.cs` demonstrate this directly: the same target searched
+in two differently-arranged (both unsorted) versions of the same values produces one
+"success" and one "failure" — proving the algorithm offers no real guarantee either way
+once the sorted precondition is violated.
+
 ---
 
 ## BFS - Breadth-First Search
@@ -121,19 +132,6 @@ removes the risk of reusing an old `HashSet` if the caller forgets to pass in a 
 
 The end result is the same, it's just a choice between remembering the new `HashSet`, or writing a helper
 method that allows you to omit that part of the call.
-
-
-### What happens on unsorted input
-
-Binary Search does **not** fail loudly or predictably on unsorted data — it fails
-*silently and inconsistently*. Whether it happens to find the target or not depends
-entirely on where the target happens to land relative to the pivot points the algorithm
-chooses — pure coincidence of array arrangement, not a property you can rely on.
-
-Two tests in `BinarySearchTests.cs` demonstrate this directly: the same target searched
-in two differently-arranged (both unsorted) versions of the same values produces one
-"success" and one "failure" — proving the algorithm offers no real guarantee either way
-once the sorted precondition is violated.
 
 ---
 

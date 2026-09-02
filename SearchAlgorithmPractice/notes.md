@@ -23,7 +23,7 @@ Its purpose is practicing search algorithms.
 - `LinearSearch()`
 - `BinarySearch()`
 - `Bfs()`
-- `DFS()`
+- `Dfs()`
 
 ---
 
