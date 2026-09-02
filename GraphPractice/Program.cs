@@ -7,6 +7,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.WriteLine("Graph Practice Program.cs running ----\n");
+        
         var graph = new Graph<string>();
         graph.AddEdge("A", "B");
         graph.AddEdge("A", "C");
