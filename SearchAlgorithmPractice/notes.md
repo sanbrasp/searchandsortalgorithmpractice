@@ -1,5 +1,7 @@
 ﻿# Notes about this project
 
+(_might move this into the main README for the project instead_)
+
 ---
 
 This is just a practice project for the course in Backend Programming at `Gokstad Akademiet`, year 2, semester 1.
