@@ -3,11 +3,13 @@
 Implementations of `Linear Search` and `Binary Search` in C#, built as part of Week 35
 (Search Algorithms) coursework. (`Gokstad Akademiet, backend programming year 2`)
 
+**_For algorithm theory, analogies, etc., see [notes.md](notes.md)_**
+
 ---
 
 ## `SearchResult<T>`
 
-Both algorithms return a shared `record`:
+Both `linear` and `binary` algorithms return a shared `record`:
 
 ```csharp
 public record SearchResult<T>(bool Found, int Index, T? Value);
@@ -68,6 +70,58 @@ internal static SearchResult<T> BinarySearch<T>(T target, IReadOnlyList<T> array
   assumption only holds if the data is actually sorted that way.
 
 ---
+
+## BFS - Breadth-First Search
+```csharp
+internal static List<T> Bfs<T>(Dictionary<T, List<T>> adjacencyList, T startNode) where T : notnull
+```
+
+- Takes the graph as a plain `Dictionary<T, List<T>>` rather than a custom `Graph<T>` type.
+  This keeps `SearchAlgorithmPractice` independent of `GraphPractice`, avoiding a circular project reference.
+  (GraphPractice depends on SearchAlgorithmPractice, not the other way).
+- Returns nodes in the order visited using a `Queue<T>` (FIFO) and a `HashSet<T>` visited set.
+- Guards against a missing start node (returns empty list), and against neighbor lookups on nodes 
+  with no adjacency-list entry (e.g., dead-end nodes) using `TryGetValue` instead of the dictionary
+  indexer to avoid a `KeyNotFoundException`
+
+---
+
+## DFS - Depth-First Search
+```csharp
+internal static List<T> Dfs<T>(Dictionary<T, List<T>> adjacencyList, T startNode) where T : notnull
+```
+
+- Same parameter shape and guard as `Bfs()` for consistency.
+- Recursive: entry point (`Dfs()`) sets up `visited / result` then delegates to a private helper (`DfsVisit`)
+  that performs the actual depth-first recursion.
+
+**Design Note**  
+The example from the lecture used an elegant and short version:
+```csharp
+void DFS(Graf graf, string node, HashSet<string> besøkt)
+{
+    besøkt.Add(node);
+    Console.WriteLine(node);
+    
+    foreach(var nabo in graf[node])
+        if (!besøkt.Contains(nabo))
+            DFS(graf, nabo, besøkt);
+}
+
+// Call
+DFS(graf, "A", new HashSet<string>());
+```
+
+The version in this project uses a private recursive helper method for the traversal, and a public
+entry point (Dfs) that handles setup.  
+The reasoning for this is that the example from the lecture requires every caller to remember to
+pass in a fresh `HashSet` at the call site.  
+Writing and using the helper method removes that requirement, making it easier to call, and it also
+removes the risk of reusing an old `HashSet` if the caller forgets to pass in a new one.
+
+The end result is the same, it's just a choice between remembering the new `HashSet`, or writing a helper
+method that allows you to omit that part of the call.
+
 
 ### What happens on unsorted input
 
