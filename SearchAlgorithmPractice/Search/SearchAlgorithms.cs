@@ -77,7 +77,7 @@ internal static class SearchAlgorithms
             return new List<T>();
         }
 
-        var visited = new HashSet<T>(); // for storing visted nodes
+        var visited = new HashSet<T>(); // for storing visited nodes
         var queue = new Queue<T>(); // for queueing nodes
         var result = new List<T>(); // for storing the result
 
