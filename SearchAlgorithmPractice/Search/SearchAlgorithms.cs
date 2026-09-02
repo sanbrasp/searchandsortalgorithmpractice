@@ -47,18 +47,16 @@ internal static class SearchAlgorithms
             
             int comparison = comparer.Compare(array[mid], target);
             
-            if (comparison == 0)
+            switch (comparison)
             {
-                return new SearchResult<T>(true, mid, array[mid]);
-            }
-            if (comparison < 0)
-            {
-                left = mid + 1; // target is to the right of mid (smaller than target)
-            }
-
-            if (comparison > 0)
-            {
-                right = mid - 1; // target is to the left of mid (bigger than target)
+                case 0:
+                    return new SearchResult<T>(true, mid, array[mid]);
+                case < 0:
+                    left = mid + 1; // target is to the right of mid (smaller than target)
+                    break;
+                case > 0:
+                    right = mid - 1; // target is to the left of mid (bigger than target)
+                    break;
             }
         }
         return new SearchResult<T>(false, -1, default);
