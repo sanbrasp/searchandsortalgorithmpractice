@@ -2,23 +2,23 @@
 
 namespace SearchAlgorithmPractice.Tests;
 
-public class BfsTests
+public class DfsSearchTests
 {
     [Fact]
-    public void Bfs_EmptyGraph_ReturnsEmptyList()
+    public void Dfs_EmptyGraph_ReturnsEmptyList()
     {
         // Arrange
         var graph = new Dictionary<string, List<string>>(); // empty list
 
         // Act
-        var result = SearchAlgorithms.Bfs(graph, "A"); // target result list
-        
+        var result = SearchAlgorithms.Dfs(graph, "A");
+
         // Assert
-        Assert.Empty(result); // asert the list to be empty
+        Assert.Empty(result); // empty list, no results.
     }
-    
+
     [Fact]
-    public void Bfs_StartNodeNotInGraph_ReturnsEmptyList()
+    public void Dfs_StartNodeNotInGraph_ReturnsEmptyList()
     {
         // Arrange
         var graph = new Dictionary<string, List<string>>
@@ -26,49 +26,50 @@ public class BfsTests
             { "A", new List<string> { "B", "C" } },
             { "B", new List<string> { "D" }}
         };
-
+        
         // Act
-        var result = SearchAlgorithms.Bfs(graph, "E");
-
+        var result = SearchAlgorithms.Dfs(graph, "E");
+        
         // Assert
         Assert.Empty(result);
     }
 
     [Fact]
-    public void Bfs_SingleNodeNoEdges_ReturnsOnlyThatNode()
+    public void Dfs_SingleNodeNoEdges_ReturnsOnlyThatNode()
     {
         // Arrange
         var graph = new Dictionary<string, List<string>>
         {
-            { "A", new List<string>() } // key value pair, key A, with an empty value list
+            { "A", new List<string>() } // key = A, empty value list
         };
-
+        
         // Act
-        var result = SearchAlgorithms.Bfs(graph, "A");
-
+        var result = SearchAlgorithms.Dfs(graph, "A");
+        
         // Assert
         Assert.Single(result);
     }
 
     [Fact]
-    public void Bfs_GraphWithCycle_TerminatesAndVisitsEachNodeOnce()
+    public void Dfs_GraphWithCycle_TerminatesAndVisitsEachNodeOnce()
     {
         // Arrange
         var graph = new Dictionary<string, List<string>>
         {
-            { "A", new List<string> { "B" } }, // directed edges: A -> B, B -> A form a cycle
-            { "B", new List<string> { "A" } }
+            { "A", new List<string> { "B", "C" } },
+            { "B", new List<string> { "A" } },
+            { "C", new List<string> { "A", "B" } }
         };
 
         // Act
-        var result = SearchAlgorithms.Bfs(graph, "A");
+        var result = SearchAlgorithms.Dfs(graph, "A");
 
         // Assert
-        Assert.Equal(new List<string> { "A", "B" }, result);
+        Assert.Equal(new List<string> { "A", "B", "C" }, result);
     }
 
     [Fact]
-    public void Bfs_NodeWithMultipleNeighbors_ReturnsExpectedOrder()
+    public void Dfs_NodeWithMultipleNeighbors_ReturnsExpectedOrder()
     {
         // Arrange
         var graph = new Dictionary<string, List<string>>
@@ -80,24 +81,24 @@ public class BfsTests
         };
 
         // Act
-        var result = SearchAlgorithms.Bfs(graph, "A");
+        var result = SearchAlgorithms.Dfs(graph, "A");
 
         // Assert
-        Assert.Equal(new List<string> { "A", "B", "C",  "D", "E" }, result);
+        Assert.Equal(new List<string> { "A", "B", "D", "E", "C" }, result);
     }
 
     [Fact]
-    public void Bfs_DisconnectedGraph_OnlyReachesStartingComponent()
+    public void Dfs_DisconnectedGraph_OnlyReachesStartingComponent()
     {
         // Arrange
         var graph = new Dictionary<string, List<string>>
         {
-            { "A", new List<string> { "B" }}, // two entirely disconnected components
-            { "X", new List<string> { "Y" }}
+            { "A", new List<string> { "B" } }, // disconnected components
+            { "X", new List<string> { "Y" } }
         };
 
         // Act
-        var result = SearchAlgorithms.Bfs(graph, "A");
+        var result = SearchAlgorithms.Dfs(graph, "A");
 
         // Assert
         Assert.Equal(new List<string> { "A", "B" }, result);
