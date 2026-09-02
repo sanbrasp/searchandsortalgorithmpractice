@@ -7,6 +7,16 @@ Implementations of `Linear Search` and `Binary Search` in C#, built as part of W
 
 ---
 
+## Overview
+- [SearchResult\<T\>](#searchresultt)
+- [LinearSearch](#linearsearch)
+- [BinarySearch](#binarysearch)
+- [BFS - Breadth-First Search](#bfs---breadth-first-search)
+- [DFS - Depth-First Search](#dfs---depth-first-search)
+- [Testing](#testing)
+
+---
+
 ## `SearchResult<T>`
 
 Both `linear` and `binary` algorithms return a shared `record`:
@@ -137,7 +147,7 @@ method that allows you to omit that part of the call.
 
 ## Testing
 
-Both algorithms are tested against the same four edge cases:
+Both `linear` and `binary` search algorithms are tested against the same four edge cases:
 - A value that exists (hit)
 - A value that doesn't exist (miss)
 - An empty collection
