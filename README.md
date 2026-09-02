@@ -16,12 +16,14 @@ algorithms in C#, built during Advanced Backend Programming (`Gokstad Akademiet`
 
 
 - **SearchAlgorithmPractice.Tests**  
-  `xUnit` tests covering both linear search and binary search (more to come), 
+  `xUnit` tests covering both `linear search`, `binary search`, `BFS`, and `DFS`, 
   including edge cases (empty collection, boundary indices, unsorted-array behavior).  
-  _More tests to come for the remaining projects._  
-  Will have its own README soon.  
+  See its own [README](SearchAlgorithmPractice.Tests/README.md) for details.  
+  Tests:  
   [BinarySearchTests](SearchAlgorithmPractice.Tests/BinarySearchTests.cs)  
-  [LinearSearchTests](SearchAlgorithmPractice.Tests/LinearSearchTests.cs)
+  [LinearSearchTests](SearchAlgorithmPractice.Tests/LinearSearchTests.cs)  
+  [BfsSearhTests](SearchAlgorithmPractice.Tests/BfsSearchTests.cs)  
+  [DfsSearchTest](SearchAlgorithmPractice.Tests/DfsSearchTests.cs)
 
 
 - **SortingAlgorithmPractice**  
@@ -59,11 +61,10 @@ This builds all four projects and runs the full test suite for the search algori
 
 ---
 
-### Repo history note
+#### Repo history note
 
-This repo was assembled from three originally separate projects using `git subtree`,
-preserving commit history where it existed. `SearchAlgorithmPractice.Tests` did not have
-prior history and was added as a fresh commit.
+This repo was initially assembled from three separate projects using `git subtree`,
+preserving commit history where it existed.
 
 ---
 
