@@ -28,7 +28,7 @@ public class BfsTests
         };
 
         // Act
-        var result = SearchAlgorithms.Bfs(graph, "D");
+        var result = SearchAlgorithms.Bfs(graph, "E");
 
         // Assert
         Assert.Empty(result);
