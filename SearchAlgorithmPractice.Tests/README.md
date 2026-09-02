@@ -17,12 +17,28 @@ dotnet test
 
 ## Test coverage
 
-Each algorithm is tested against the same four baseline cases:
+`LinearSearch` and `BinarySearch` are tested against the same four baseline cases:
 
 - **Hit** — target exists in the collection
 - **Miss** — target does not exist in the collection
 - **Empty collection** — no elements to search
 - **Boundary indices** — target sits at the first or last valid index
+
+`BinarySearch` has an additional pair of tests demonstrating unreliable behavior on
+unsorted input (see above).
+
+`Bfs` is tested against six scenarios:
+
+- **Empty graph** — no nodes at all
+- **Unknown start node** — start node isn't a key in the graph
+- **Single node, no edges** — one node, empty neighbor list
+- **Cycle** — two nodes with edges pointing back to each other; confirms termination and no duplicate visits
+- **Multiple neighbors** — confirms visit order matches expected FIFO/queue behavior
+- **Disconnected components** — confirms BFS from one component doesn't reach an unrelated component
+
+`Dfs` doesn't have test coverage yet.
+
+---
 
 ---
 
