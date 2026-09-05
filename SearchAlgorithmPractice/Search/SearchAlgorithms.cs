@@ -39,7 +39,7 @@ internal static class SearchAlgorithms
         var comparer = Comparer<T>.Default;
 
         int left = 0;
-        int right = array.Count - 1; // because array indices start at 0, so you need the - 1 to get the valid end indice
+        int right = array.Count - 1; // because array indices start at 0, so you need the - 1 to get the valid end indices
 
         while (left <= right)
         {
